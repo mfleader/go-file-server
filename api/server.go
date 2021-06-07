@@ -102,9 +102,9 @@ func main() {
 	app.Post("/stream", func(c *fiber.Ctx) error {
 
 		// b0 := c.Body()
-
-		// fmt.Printf("is request body stream %v\n", c.Context().IsBodyStream())
 		// fmt.Printf("b0: %s\nb1: %s\nb2: %s\n", b0, b1, b2)
+		log.Printf("is request body stream? %v\n", c.Context().IsBodyStream())
+		log.Printf("Request size: %f Go\n", float32(len(c.Body()))/1000000000.0)
 
 		return c.SendString("end of server stream func.\n")
 	})
