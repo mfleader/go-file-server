@@ -36,7 +36,7 @@ def post_file(url: str, filepath: Path):
     r = requests.post(
       url,
       data=StreamingIterator(size, upload_bytes(filepath.open('rb'))),
-      stream=True
+      # stream=True
     )
     print(r.request)
     print(r.text)
@@ -46,10 +46,11 @@ def post_file(url: str, filepath: Path):
 def main():
   post_file(
     'http://localhost:4000/stream',    
-    Path('/home/mleader/50K.txt')
+    # Path('/home/mleader/50K.txt')
     # Path('/home/mleader/Pictures/bayes-ab.png')
     # Path('/home/mleader/lg.txt')
-    # Path('/home/mleader/10G.txt')
+    # Path('/home/mleader/2G.txt')
+    Path('abc.txt')
   )
 
 
